@@ -80,8 +80,7 @@
 </div>
 
 <script>
-var cityBarChart={
-  display: function () {
+function displayBar() {
 	console.log("Hello");
         var margin = {
                 top: 20,
@@ -130,8 +129,9 @@ var cityBarChart={
         .append('p')
         .html(function(d,i) { return d.Location + " " + d.Price_2019_AVG; });
   }
-};
+}
 function openVisualization(evt, visName) {
+    console.log("new event")
     var i, tabcontent, tablinks;
 	d3.select("svg").remove();
     tabcontent = document.getElementsByClassName("tabcontent");
@@ -148,9 +148,11 @@ function openVisualization(evt, visName) {
 		evt.currentTarget.className += " active";
 		
 	if(visName==='ScatterPlot')
-		multiScatterPlot.display();
+		console.log("Scatter")
+		displayScatter();
 	if(visName==='BarChart')
-		cityBarChart.display();
+		console.log("Bar")
+		displayBar();
 	if(visName==='Overview')
 		tablinks[0].className += " active";
 }
