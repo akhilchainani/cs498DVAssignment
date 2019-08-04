@@ -44,5 +44,4 @@ function displayBar() {
         .enter()
         .append('p')
         .html(function(d,i) { return d.Location + " " + d.Price_2019_AVG; });
-  }
-};
+}
