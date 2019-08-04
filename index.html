@@ -107,6 +107,22 @@ var cityBarChart={
                                 Price_2019_AVG: +d.Price_2019_AVG
                               };
                             });
+	
+	var studioData = data.filter(function(d) {
+                                      return d.Bedroom_Side === "Studio";
+                                     });
+        var OneBrData = data.filter(function(d) {
+                                      return d.Bedroom_Side === "1br";
+                                    });
+        var TwoBrData = data.filter(function(d) {
+                                      return d.Bedroom_Side === "2br";
+                                    });
+        var ThreeBrData = data.filter(function(d) {
+                                      return d.Bedroom_Side === "3br";
+                                      });
+        var FourBrData = data.filter(function(d) {
+                                      return d.Bedroom_Side === "4br";
+                                     });
   }
 };
 function openVisualization(evt, visName) {
