@@ -8,6 +8,7 @@
 <script src="https://akhilchainani.github.io/DataVisualization/multiScatterPlot.js"></script>
 </head>
 <body>
+<svg width=800 height=800></svg>
 <h1>Data Visualization - Final Project</h1>
 
 <p>Click on the buttons inside the tabbed menu:</p>
@@ -96,9 +97,9 @@ function openVisualization(evt, visName) {
 		evt.currentTarget.className += " active";
 		
 	if(visName==='ScatterPlot')
-		multiDimantional.display();
+		multiScatterPlot.display();
 	if(visName==='BarChart')
-		areaChart.display();
+		cityBarChart.display();
 	if(visName==='Overview')
 		tablinks[0].className += " active";
 }
