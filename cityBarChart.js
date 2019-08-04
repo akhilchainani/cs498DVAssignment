@@ -9,7 +9,7 @@ var cityBarChart={
         var width = 960 - margin.left - margin.right;
         var height = 600 - margin.top - margin.bottom;
     
-        const data = d3.csv("https://raw.githubusercontent.com/akhilchainani/cs498DVAssignment/master/Preprocessed_Rent.csv"),
+        const data = d3.csv("https://raw.githubusercontent.com/akhilchainani/cs498DVAssignment/master/Preprocessed_Rent.csv",
                             function(d) {
                               return {
                                 Location: d.Location,
