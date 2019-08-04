@@ -106,7 +106,7 @@ function displayBar() {
 				});
                             });
 	console.log(data);
-	d3.append('svg').attr('width', 800).attr('height',800)
+	d3.select('body').append('svg').attr('width', 800).attr('height',800)
         d3.select('svg')
         .selectAll('circle')
         .data(data)
