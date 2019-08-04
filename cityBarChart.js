@@ -1,5 +1,4 @@
-var cityBarChart={
-  display: function () {
+function displayBar() {
         var margin = {
                 top: 20,
                 right: 20,
