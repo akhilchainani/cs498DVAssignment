@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="https://akhilchainani.github.io/cs498DVAssignment/index.css">
+<script src="https://d3js.org/d3.v3.min.js"></script>
+<script src="https://akhilchainani.github.io/cs498DVAssignment/cityBarChart.js"></script>
+<script src="https://akhilchainani.github.io/DataVisualization/multiScatterPlot.js"></script>
+</head>
+<body>
+<h1>Data Visualization - Final Project</h1>
+
+<p>Click on the buttons inside the tabbed menu:</p>
+
+<div class="tab">
+	<button class="tablinks" onclick="openVisualization(event, 'Overview')">About the Visualization</button>
+	<button class="tablinks" onclick="openVisualization(event, 'BarChart')">Intercity Rent Analysis</button>
+	<button class="tablinks" onclick="openVisualization(event, 'ScatterPlot')">Intracity Rent Analysis</button>
+</div>
+
+<div id="Overview" class="tabcontent">
+   <ul>
+      <li>
+         Does the narrative visualization correctly follow the hybrid structure as stated by the essay?
+         <p>
+		TODO://Answer
+         </p>
+      </li>
+      <li>
+         Does the narrative visualization effectively utilize scenes?
+         <p> 
+		TODO://Answer
+        </p>
+         <p>
+		TODO://Answer             
+        </p>
+         <p> 
+		TODO://Answer
+        </p>
+      </li>
+      <li>
+         Does the narrative visualization effectively utilize annotations?
+         <p> 	
+		TODO://Answer
+	 </p>
+      </li>
+      <li>
+         Does the narrative visualization effectively utilize parameters?
+         <p>  
+		TODO://Answer
+        </p>
+      </li>
+      <li>
+         Does the narrative visualization effectively utilize triggers?
+         <p>	
+		TODO://Answer
+ </p>
+      </li>
+	   <li>
+         Code organization.
+         <p> 	
+		TODO://Answer
+	 </p>
+      </li>
+   </ul>
+</div>
+
+<div id="BarChart" class="tabcontent">
+  <div id="tooltip"></div>
+	<p> 
+		TODO://Description
+	</p>
+</div>
+
+<div id="ScatterPlot" class="tabcontent">
+	<p>
+		TODO://Description
+	</p>
+</div>
+
+<script>
+function openVisualization(evt, visName) {
+    var i, tabcontent, tablinks;
+	d3.select("svg").remove();
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+			tablinks[i].className = tablinks[i].className.replace(" active", "");
+			tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(visName).style.display = "block";
+	if(evt!==0)
+		evt.currentTarget.className += " active";
+		
+	if(visName==='ScatterPlot')
+		multiDimantional.display();
+	if(visName==='BarChart')
+		areaChart.display();
+	if(visName==='Overview')
+		tablinks[0].className += " active";
+}
+openVisualization(0,'Overview');
+</script>
+     
+</body>
+</html> 
