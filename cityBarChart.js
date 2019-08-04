@@ -1,5 +1,4 @@
-var cityBarChart={
-  display: function () {
+function displayBar() {
         var margin = {
                 top: 20,
                 right: 20,
@@ -9,7 +8,7 @@ var cityBarChart={
         var width = 960 - margin.left - margin.right;
         var height = 600 - margin.top - margin.bottom;
     
-        const data = d3.csv("https://raw.githubusercontent.com/akhilchainani/cs498DVAssignment/master/Preprocessed_Rent.csv"),
+        const data = d3.csv("https://raw.githubusercontent.com/akhilchainani/cs498DVAssignment/master/Preprocessed_Rent.csv",
                             function(d) {
                               return {
                                 Location: d.Location,
@@ -24,26 +23,11 @@ var cityBarChart={
                                 Price_2019_AVG: +d.Price_2019_AVG
                               };
                             });
-        var studioData = data.filter(function(d) {
-                                      return d.Bedroom_Side === "Studio";
-                                     });
-        var OneBrData = data.filter(function(d) {
-                                      return d.Bedroom_Side === "1br";
-                                    });
-        var TwoBrData = data.filter(function(d) {
-                                      return d.Bedroom_Side === "2br";
-                                    });
-        var ThreeBrData = data.filter(function(d) {
-                                      return d.Bedroom_Side === "3br";
-                                      });
-        var FourBrData = data.filter(function(d) {
-                                      return d.Bedroom_Side === "4br";
-                                     });
         d3.select('body')
         .selectAll('p')
         .data(data)
         .enter()
         .append('p')
+        .filter(function(d) { return d.Bedroom_Side === "Studio"; })
         .html(function(d,i) { return d.Location + " " + d.Price_2019_AVG; });
-  }
-};
+}
