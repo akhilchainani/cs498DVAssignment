@@ -93,16 +93,16 @@ function displayBar() {
         const data = d3.csv("https://raw.githubusercontent.com/akhilchainani/cs498DVAssignment/master/Preprocessed_Rent.csv",
                             function(error, data) {
 				data.forEach(function(d) {
-                                	d.Location: d.Location;
-                                	d.Location_Type: d.Location_Type;
-                                	d.State: d.State;
-                                	d.Bedroom_Size: d.Bedroom_Size;
-                                	d.Price_2014_AVG: +d.Price_2014_AVG;
-                                	d.Price_2015_AVG: +d.Price_2015_AVG;
-                                	d.Price_2016_AVG: +d.Price_2016_AVG;
-                                	d.Price_2017_AVG: +d.Price_2017_AVG;
-                                	d.Price_2018_AVG: +d.Price_2018_AVG;
-                                	d.Price_2019_AVG: +d.Price_2019_AVG;
+                                	d.Location = d.Location;
+                                	d.Location_Type = d.Location_Type;
+                                	d.State = d.State;
+                                	d.Bedroom_Size = d.Bedroom_Size;
+                                	d.Price_2014_AVG = +d.Price_2014_AVG;
+                                	d.Price_2015_AVG = +d.Price_2015_AVG;
+                                	d.Price_2016_AVG = +d.Price_2016_AVG;
+                                	d.Price_2017_AVG = +d.Price_2017_AVG;
+                                	d.Price_2018_AVG = +d.Price_2018_AVG;
+                                	d.Price_2019_AVG = +d.Price_2019_AVG;
                               )};
                             });
 	console.log(data);
