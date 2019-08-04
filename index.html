@@ -90,7 +90,7 @@ function displayBar() {
         var width = 960 - margin.left - margin.right;
         var height = 600 - margin.top - margin.bottom;
     
-        const data = d3.csv("https://raw.githubusercontent.com/akhilchainani/cs498DVAssignment/master/Preprocessed_Rent.csv");
+        const data = d3.csv("https://raw.githubusercontent.com/akhilchainani/cs498DVAssignment/master/Preprocessed_Rent.csv", function(data, error) {console.log(error);});
 	console.log(data[0]);
 	d3.select('body').append('svg').attr('width', 800).attr('height',800)
         d3.select('svg')
