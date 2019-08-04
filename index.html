@@ -93,7 +93,6 @@ function displayBar() {
 	d3.select('svg').append('g').attr('transform', 'translate(75,75)');
 	
         const data = d3.csv("https://raw.githubusercontent.com/akhilchainani/cs498DVAssignment/master/Preprocessed_Rent.csv");
-	console.log(error);
 	console.log(data[0]);
 				
 	var max = d3.max(data, function(d) { return parseFloat(d.Price_2018_AVG); });
