@@ -106,7 +106,6 @@ function displayBar() {
 				.data(data)
 				.enter()
 				.append('rect')
-				.filter(function(d) { return d.Bedroom_Size == "Studio"; })
 				.style("fill", "red")
 				.attr('x', x.bandwith())
 				.attr('y', function(d) { return y(parseFloat(d.Price_2018_AVG)); })
