@@ -103,7 +103,7 @@ function displayBar() {
 		
 	chart = d3.select('svg').append('g').attr('transform', 'translate(75,75)');
 	chart.selectAll('rect')
-	.data(studio_data)
+	.data(data)
 	.enter()
 	.append('rect')
 	.style("fill", "red")
