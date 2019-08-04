@@ -8,7 +8,6 @@
 <script src="https://akhilchainani.github.io/cs498DVAssignment/multiScatterPlot.js"></script>
 </head>
 <body>
-<svg width=800 height=800></svg>
 <h1>Data Visualization - Final Project</h1>
 
 <p>Click on the buttons inside the tabbed menu:</p>
@@ -90,17 +89,17 @@ function displayBar() {
         var width = 960 - margin.left - margin.right;
         var height = 600 - margin.top - margin.bottom;
     
+	d3.select('body').append('svg').attr('width', 800).attr('height',800)
         const data = d3.csv("https://raw.githubusercontent.com/akhilchainani/cs498DVAssignment/master/Preprocessed_Rent.csv", 
 			    function(error, data) {
 				console.log(error);
 				console.log(data[0]);
-				d3.select('body').append('svg').attr('width', 800).attr('height',800)
         			d3.select('svg')
         			.selectAll('circle')
         			.data(data)
         			.enter()
         			.append('circle')
-				.filter(function(d) { return d.Bedroom_Side === "Studio"; })
+				.filter(function(d) { return d.Bedroom_Side == "Studio"; })
 				.attr('cx', 200)
 				.attr('cy', 200)
 				.attr('r', 5);
