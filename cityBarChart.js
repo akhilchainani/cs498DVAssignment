@@ -41,7 +41,7 @@ var cityBarChart={
                                      });
         d3.select('body')
         .selectAll('p')
-        .data(studioData)
+        .data(data)
         .enter()
         .append('p')
         .html(function(d,i) { return d.Location + " " + d.Price_2019_AVG; });
