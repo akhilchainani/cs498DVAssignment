@@ -94,6 +94,8 @@ function displayBar() {
 	
         const data = d3.csv("https://raw.githubusercontent.com/akhilchainani/cs498DVAssignment/master/Preprocessed_Rent.csv");
 	console.log(data[0]);
+	
+	var studio_data = data.filter(function(d) { return d.Bedroom_Type == "Studio" });
 				
 	var max = d3.max(data, function(d) { return parseFloat(d.Price_2018_AVG); });
 	var x = d3.scaleBand([0,1,2,3,4,5]).range([0,width]);
@@ -101,13 +103,13 @@ function displayBar() {
 		
 	chart = d3.select('svg').append('g').attr('transform', 'translate(75,75)');
 	chart.selectAll('rect')
-	.data(data)
+	.data(studio_data)
 	.enter()
 	.append('rect')
 	.style("fill", "red")
-	.attr('x', x.bandwith())
+	.attr('x', x.bandwidth())
 	.attr('y', function(d) { return y(parseFloat(d.Price_2018_AVG)); })
-	.attr('width', x.bandwidth)
+	.attr('width', x.bandwidth())
 	.attr('height', function(d) { return height - y(parseFloat(d.Price_2018_AVG)); });
 	
 }
