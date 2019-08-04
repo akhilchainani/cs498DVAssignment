@@ -100,6 +100,7 @@ function displayBar() {
 				console.log(data);
 				chart.selectAll('rect').data(data)
 				.enter().append('rect')
+			       	.filter(function(d) { return d.Bedroom_Size == "Studio"; })
 				.style("fill", "red")
 				.attr('x', x.bandwidth())
 				.attr('y', function(d) { return y(parseFloat(d.Price_2018__AVG)); })
