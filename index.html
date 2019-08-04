@@ -99,9 +99,9 @@ function displayBar() {
 				chart = d3.select('svg').append('g').attr('transform', 'translate(75,75)');
 				chart.selectAll('rect')
 				.data(data)
-				.filter(function(d) { return d.Bedroom_Size == "Studio"; })
 				.enter()
 				.append('rect')
+				.filter(function(d) { return d.Bedroom_Size == "Studio"; })
 				.style("fill", "red")
 				.attr('x', 200)
 				.attr('y', 200)
