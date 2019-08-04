@@ -91,28 +91,31 @@ function displayBar() {
         var height = 600 - margin.top - margin.bottom;
     
         const data = d3.csv("https://raw.githubusercontent.com/akhilchainani/cs498DVAssignment/master/Preprocessed_Rent.csv",
-                            function(d) {
-                              return {
-                                Location: d.Location,
-                                Location_Type: d.Location_Type,
-                                State: d.State,
-                                Bedroom_Size: d.Bedroom_Size,
-                                Price_2014_AVG: +d.Price_2014_AVG,
-                                Price_2015_AVG: +d.Price_2015_AVG,
-                                Price_2016_AVG: +d.Price_2016_AVG,
-                                Price_2017_AVG: +d.Price_2017_AVG,
-                                Price_2018_AVG: +d.Price_2018_AVG,
-                                Price_2019_AVG: +d.Price_2019_AVG
-                              };
+                            function(error, data) {
+				data.forEach(function(d) {
+                                	d.Location: d.Location;
+                                	d.Location_Type: d.Location_Type;
+                                	d.State: d.State;
+                                	d.Bedroom_Size: d.Bedroom_Size;
+                                	d.Price_2014_AVG: +d.Price_2014_AVG;
+                                	d.Price_2015_AVG: +d.Price_2015_AVG;
+                                	d.Price_2016_AVG: +d.Price_2016_AVG;
+                                	d.Price_2017_AVG: +d.Price_2017_AVG;
+                                	d.Price_2018_AVG: +d.Price_2018_AVG;
+                                	d.Price_2019_AVG: +d.Price_2019_AVG;
+                              )};
                             });
 	console.log(data);
-        d3.select('body')
-        .selectAll('p')
+	d3.append('svg').attr('width', 800).attr('height',800)
+        d3.select('svg')
+        .selectAll('circle')
         .data(data)
         .enter()
-        .append('p')
+        .append('circle')
 	.filter(function(d) { return d.Bedroom_Side === "Studio"; })
-        .html(function(d,i) { return d.Location + " " + d.Price_2019_AVG; });
+	.attr('cx', 200)
+	.attr('cy', 200)
+	.attr('r', 5);
 }
 function displayScatter() {
 	
