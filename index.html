@@ -105,7 +105,7 @@ function displayBar() {
                                 	d.Price_2019_AVG = +d.Price_2019_AVG;
 				});
                             });
-	console.log(data);
+	console.log(data[0]);
 	d3.select('body').append('svg').attr('width', 800).attr('height',800)
         d3.select('svg')
         .selectAll('circle')
