@@ -107,7 +107,7 @@ function displayBar() {
 	.style("fill", "red")
 	.attr('x', x.bandwith())
 	.attr('y', function(d) { return y(parseFloat(d.Price_2018_AVG)); })
-	.attr('width', x.bandwith())
+	.attr('width', x.bandwith)
 	.attr('height', function(d) { return height - y(parseFloat(d.Price_2018_AVG)); });
 	
 }
