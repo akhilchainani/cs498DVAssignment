@@ -90,21 +90,7 @@ function displayBar() {
         var width = 960 - margin.left - margin.right;
         var height = 600 - margin.top - margin.bottom;
     
-        const data = d3.csv("https://raw.githubusercontent.com/akhilchainani/cs498DVAssignment/master/Preprocessed_Rent.csv",
-                            function(error, data) {
-				data.forEach(function(d) {
-                                	d.Location = d.Location;
-                                	d.Location_Type = d.Location_Type;
-                                	d.State = d.State;
-                                	d.Bedroom_Size = d.Bedroom_Size;
-                                	d.Price_2014_AVG = +d.Price_2014_AVG;
-                                	d.Price_2015_AVG = +d.Price_2015_AVG;
-                                	d.Price_2016_AVG = +d.Price_2016_AVG;
-                                	d.Price_2017_AVG = +d.Price_2017_AVG;
-                                	d.Price_2018_AVG = +d.Price_2018_AVG;
-                                	d.Price_2019_AVG = +d.Price_2019_AVG;
-				});
-                            });
+        const data = d3.csv("https://raw.githubusercontent.com/akhilchainani/cs498DVAssignment/master/Preprocessed_Rent.csv");
 	console.log(data[0]);
 	d3.select('body').append('svg').attr('width', 800).attr('height',800)
         d3.select('svg')
