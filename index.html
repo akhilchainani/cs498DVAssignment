@@ -3,7 +3,7 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="https://akhilchainani.github.io/cs498DVAssignment/index.css">
-<script src="https://d3js.org/d3.v3.min.js"></script>
+<script src="https://d3js.org/d3.v5.min.js"></script>
 <script src="https://akhilchainani.github.io/cs498DVAssignment/cityBarChart.js"></script>
 <script src="https://akhilchainani.github.io/cs498DVAssignment/multiScatterPlot.js"></script>
 </head>
@@ -98,8 +98,8 @@ function displayBar() {
 				console.log(data[0]);
 				
 				var max = d3.max(data, function(d) { return parseFloat(d.Price_2018_AVG); });
-				var x = d3.scaleLinear().range([0, 500]);
-				var y = d3.scaleLinear().domain([0, max]).range([0,500]);
+				var x = d3.scaleBand([0,1,2,3,4,5]).range([0,width]);
+				var y = d3.scaleLinear().domain([0, max]).range([0,height]);
 		
 				chart = d3.select('svg').append('g').attr('transform', 'translate(75,75)');
 				chart.selectAll('rect')
