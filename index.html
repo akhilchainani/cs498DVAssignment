@@ -91,27 +91,23 @@ function displayBar() {
     
 	d3.select('body').append('svg').attr('width', width).attr('height', height)
 	d3.select('svg').append('g').attr('transform', 'translate(75,75)');
-	
-        const data = d3.csv("https://raw.githubusercontent.com/akhilchainani/cs498DVAssignment/master/Preprocessed_Rent.csv",
-			   function(data, i) {
-				console.log(data);
-				console.log(i); 
-			   });
-	console.log(data);
 	var max = d3.max(data, function(d) { return parseFloat(d.Price_2018_AVG); });
 	var x = d3.scaleBand([0,1,2,3,4]).range([0,width]);
 	var y = d3.scaleLinear().domain([0, max]).range([0,height]);
 		
 	chart = d3.select('svg').append('g').attr('transform', 'translate(75,75)');
-	chart.selectAll('rect')
-	.data(data)
-	.enter()
-	.append('rect')
-	.style("fill", "red")
-	.attr('x', x.bandwidth())
-	.attr('y', function(d) { return y(parseFloat(d.Price_2018_AVG)); })
-	.attr('width', x.bandwidth())
-	.attr('height', function(d) { return height - y(parseFloat(d.Price_2018_AVG)); });
+        const data = d3.csv("https://raw.githubusercontent.com/akhilchainani/cs498DVAssignment/master/Preprocessed_Rent.csv",
+			   function(data, i) {
+				console.log(data);
+				console.log(i);
+				chart.append('rect')
+				.style("fill", "red")
+				.attr('x', x.bandwidth())
+				.attr('y', y(parseFloat(data.Price_2018_AVG)))
+				.attr('width', x.bandwidth())
+				.attr('height', height - y(parseFloat(data.Price_2018_AVG)));
+			   });
+	console.log(data);
 }
 function displayScatter() {
 	
