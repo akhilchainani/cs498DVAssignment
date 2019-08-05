@@ -98,7 +98,7 @@ function SceneOne() {
         var height = 600 - margin.top - margin.bottom;
     
 	d3.select('body').append('svg').attr('width', 960).attr('height', 600);
-	var x = d3.scaleBand().domain([0,1,2,3,4]).range([0,width]);
+	var x = d3.scaleBand().domain(["New York, NY", "Chicago, IL", "San Francisco, CA", "Seattle, WA", "Champaign, IL"]).range([0,width]);
 	var y = d3.scaleLinear().domain([0, 2500]).range([height, 0]);
 	chart = d3.select('svg').append('g').attr('transform', "translate("+margin.left+","+margin.top+")");
         const data = d3.csv("https://raw.githubusercontent.com/akhilchainani/cs498DVAssignment/master/Preprocessed_Rent.csv")
@@ -116,7 +116,7 @@ function SceneOne() {
 				console.log("error");	
 		       });
 	console.log(data);
-	var xAxis = d3.axisBottom(x).tickValues(["New York, NY", "Chicago, IL", "San Francisco, CA", "Seattle, WA", "Champaign, IL"]);
+	var xAxis = d3.axisBottom(x);//.tickValues(["New York, NY", "Chicago, IL", "San Francisco, CA", "Seattle, WA", "Champaign, IL"]);
 	d3.select('svg').append('g').attr('transform', "translate("+margin.left+","+margin.top+")").call(d3.axisLeft(y));
 	d3.select('svg').append('g').attr('transform', "translate("+margin.left+","+(height+margin.top)+")").call(xAxis);
 }
