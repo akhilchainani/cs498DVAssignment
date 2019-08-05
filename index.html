@@ -88,12 +88,11 @@ function displayBar() {
                 left: 100
             };
         var width = 960 - margin.left - margin.right;
-        var height = 800 - margin.top - margin.bottom;
+        var height = 600 - margin.top - margin.bottom;
     
-	d3.select('body').append('svg').attr('width', width).attr('height', height);
+	d3.select('body').append('svg').attr('width', 960).attr('height', 600);
 	var x = d3.scaleBand().domain([0,1,2,3,4]).range([0,width]);
 	var y = d3.scaleLinear().domain([0, 2500]).range([height, 0]);
-		//function(d) { return height - y(parseFloat(d.Price_2018_AVG)); }
 	chart = d3.select('svg').append('g').attr('transform', "translate("+margin.left+","+margin.top+")");
         const data = d3.csv("https://raw.githubusercontent.com/akhilchainani/cs498DVAssignment/master/Preprocessed_Rent.csv")
 		       .then(function(data) {
@@ -111,7 +110,7 @@ function displayBar() {
 		       });
 	console.log(data);
 	d3.select('svg').append('g').attr('transform', "translate("+margin.left+","+margin.top+")").call(d3.axisLeft(y));
-	d3.select('svg').append('g').attr('transform', "translate("+margin.left+","+(height)+")").call(d3.axisBottom(x));
+	d3.select('svg').append('g').attr('transform', "translate("+margin.left+","+(height+margin.top)+")").call(d3.axisBottom(x));
 }
 function displayScatter() {
 	
