@@ -142,9 +142,9 @@ function SceneTwo() {
                 left: 100
             };
         var width = 960 - margin.left - margin.right;
-        var height = 600 - margin.top - margin.bottom;
+        var height = 610 - margin.top - margin.bottom;
     
-	d3.select('body').append('svg').attr('width', 960).attr('height', 600);
+	d3.select('body').append('svg').attr('width', 960).attr('height', 620);
 	var x = d3.scaleBand().domain(["Studio", "1br", "2br", "3br", "4br"]).range([0,width]);
 	var y = d3.scaleLinear().domain([1250, 3750]).range([height, 0]);
 	chart = d3.select('svg').append('g').attr('transform', "translate("+margin.left+","+margin.top+")");
@@ -190,9 +190,9 @@ function SceneThree() {
                 left: 100
             };
         var width = 960 - margin.left - margin.right;
-        var height = 600 - margin.top - margin.bottom;
+        var height = 610 - margin.top - margin.bottom;
     
-	d3.select('body').append('svg').attr('width', 960).attr('height', 600);
+	d3.select('body').append('svg').attr('width', 960).attr('height', 620);
 	var x = d3.scaleBand().domain(["2014","2015","2016","2017","2018","2019"]).range([0,width]);
 	var y = d3.scaleLinear().domain([1750, 1950]).range([height, 0]);
 	chart = d3.select('svg').append('g').attr('transform', "translate("+margin.left+","+margin.top+")");
