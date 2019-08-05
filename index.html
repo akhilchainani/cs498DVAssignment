@@ -130,9 +130,9 @@ function SceneOne() {
     		.attr("text-anchor", "end")
     		.attr("y", 20)
 		.attr("x", -250)
-    		.attr("dy", ".75em")
+    		.attr("dy", "1em")
     		.attr("transform", "rotate(-90)")
-    		.text("life expectancy (years)");
+    		.text("Average Rent");
 }
 function SceneTwo() {
 	var margin = {
@@ -166,6 +166,20 @@ function SceneTwo() {
 	var xAxis = d3.axisBottom(x);
 	d3.select('svg').append('g').attr('transform', "translate("+margin.left+","+margin.top+")").call(d3.axisLeft(y));
 	d3.select('svg').append('g').attr('transform', "translate("+margin.left+","+(height+margin.top)+")").call(xAxis);
+	d3.select('svg').append("text")
+    		.attr("class", "x label")
+    		.attr("text-anchor", "end")
+    		.attr("x", 527)
+    		.attr("y", 610)
+    		.text("Bedroom Type");
+	d3.select('svg').append("text")
+		.attr("class", "y label")
+    		.attr("text-anchor", "end")
+    		.attr("y", 20)
+		.attr("x", -250)
+    		.attr("dy", "1em")
+    		.attr("transform", "rotate(-90)")
+    		.text("Average Rent");
 }
 	
 function SceneThree() {
@@ -200,6 +214,20 @@ function SceneThree() {
 	var xAxis = d3.axisBottom(x);
 	d3.select('svg').append('g').attr('transform', "translate("+margin.left+","+margin.top+")").call(d3.axisLeft(y));
 	d3.select('svg').append('g').attr('transform', "translate("+margin.left+","+(height+margin.top)+")").call(xAxis);
+	d3.select('svg').append("text")
+    		.attr("class", "x label")
+    		.attr("text-anchor", "end")
+    		.attr("x", 527)
+    		.attr("y", 610)
+    		.text("Year");
+	d3.select('svg').append("text")
+		.attr("class", "y label")
+    		.attr("text-anchor", "end")
+    		.attr("y", 20)
+		.attr("x", -250)
+    		.attr("dy", "1em")
+    		.attr("transform", "rotate(-90)")
+    		.text("Average Rent");
 }
 
 function openVisualization(evt, visName) {
