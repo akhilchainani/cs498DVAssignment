@@ -126,9 +126,10 @@ function SceneOne() {
     		.attr("y", 600)
     		.text("City");
 	d3.select('svg').append("text")
+		.attr("class", "y label")
       		.attr("transform", "rotate(-90)")
-      		.attr("y", 0 - margin.left)
-      		.attr("x",0 - (height / 2))
+      		.attr("y", 10)
+      		.attr("x", height/2)
       		.attr("dy", "1em")
       		.style("text-anchor", "middle")
       		.text("Average Rent");
