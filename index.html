@@ -91,7 +91,7 @@ function SceneOne() {
         var margin = {
                 top: 20,
                 right: 20,
-                bottom: 20,
+                bottom: 30,
                 left: 100
             };
         var width = 960 - margin.left - margin.right;
@@ -127,12 +127,12 @@ function SceneOne() {
     		.text("City");
 	d3.select('svg').append("text")
 		.attr("class", "y label")
-      		.attr("transform", "rotate(-90)")
-      		.attr("y", 10)
-      		.attr("x", height/2)
-      		.attr("dy", "1em")
-      		.style("text-anchor", "middle")
-      		.text("Average Rent");
+    		.attr("text-anchor", "end")
+    		.attr("y", 6)
+		.attr("x", 300)
+    		.attr("dy", ".75em")
+    		.attr("transform", "rotate(-90)")
+    		.text("life expectancy (years)");
 }
 function SceneTwo() {
 	var margin = {
