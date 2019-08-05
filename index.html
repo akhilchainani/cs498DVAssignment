@@ -166,7 +166,7 @@ function SceneThree() {
     
 	d3.select('body').append('svg').attr('width', 960).attr('height', 600);
 	var x = d3.scaleBand().domain([0,1,2,3,4,5]).range([0,width]);
-	var y = d3.scaleLinear().domain([1700, 2000]).range([height, 0]);
+	var y = d3.scaleLinear().domain([1750, 1950]).range([height, 0]);
 	chart = d3.select('svg').append('g').attr('transform', "translate("+margin.left+","+margin.top+")");
         const data = d3.csv("https://raw.githubusercontent.com/akhilchainani/cs498DVAssignment/master/Pivoted_data.csv")
 		       .then(function(data) {
@@ -183,7 +183,7 @@ function SceneThree() {
 				console.log("error");	
 		       });
 	console.log(data);
-	var xAxis = d3.axisBottom(x).tickValues(["2014", "2015", "2016", "2017", "2018", "2019"]);
+	var xAxis = d3.axisBottom(x).tickValues(["2014", "2015", "2016", "2017", "2018", "2019"]).tickFormat(d3.format("~s"));
 	d3.select('svg').append('g').attr('transform', "translate("+margin.left+","+margin.top+")").call(d3.axisLeft(y));
 	d3.select('svg').append('g').attr('transform', "translate("+margin.left+","+(height+margin.top)+")").call(xAxis);
 }
