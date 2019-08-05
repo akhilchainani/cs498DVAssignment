@@ -97,7 +97,7 @@ function SceneOne() {
         var width = 960 - margin.left - margin.right;
         var height = 610 - margin.top - margin.bottom;
     
-	d3.select('body').append('svg').attr('width', 960).attr('height', 600);
+	d3.select('body').append('svg').attr('width', 960).attr('height', 610);
 	var x = d3.scaleBand().domain(["New York, NY", "Chicago, IL", "San Francisco, CA", "Seattle, WA", "Champaign, IL"]).range([0,width]);
 	var y = d3.scaleLinear().domain([0, 2500]).range([height, 0]);
 	chart = d3.select('svg').append('g').attr('transform', "translate("+margin.left+","+margin.top+")");
@@ -126,12 +126,12 @@ function SceneOne() {
     		.attr("y", 600)
     		.text("City");
 	d3.select('svg').append("text")
-    		.attr("class", "y label")
-    		.attr("text-anchor", "middle")
-    		.attr("y", 10)
-    		.attr("dy", ".75em")
-    		.attr("transform", "rotate(-90)")
-    		.text("Average Rent");
+      		.attr("transform", "rotate(-90)")
+      		.attr("y", 0 - margin.left)
+      		.attr("x",0 - (height / 2))
+      		.attr("dy", "1em")
+      		.style("text-anchor", "middle")
+      		.text("Average Rent");
 }
 function SceneTwo() {
 	var margin = {
