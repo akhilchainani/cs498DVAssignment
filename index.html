@@ -168,50 +168,16 @@ function SceneThree() {
 	var x = d3.scaleBand().domain([0,1,2,3,4,5]).range([0,width]);
 	var y = d3.scaleLinear().domain([1500, 2000]).range([height, 0]);
 	chart = d3.select('svg').append('g').attr('transform', "translate("+margin.left+","+margin.top+")");
-        const data = d3.csv("https://raw.githubusercontent.com/akhilchainani/cs498DVAssignment/master/Preprocessed_Rent.csv")
+        const data = d3.csv("https://raw.githubusercontent.com/akhilchainani/cs498DVAssignment/master/Pivoted_data.csv")
 		       .then(function(data) {
 				console.log(data);
-				chart.append('rect')
+				chart.selectAll('rect').data(data)
+				.enter().append('rect')
 			       	.filter(function(d) { return d.Location == "New York, NY" && d.Bedroom_Size == "Studio"; })
-				.attr('x', function(d,i) { return x(0); })
-				.attr('y', function(d) { return y(parseFloat(d.Price_2014__AVG)); })
+				.attr('x', function(d,i) { return x(i); })
+				.attr('y', function(d) { return y(parseFloat(d.AVG_Rent)); })
 				.attr('width', x.bandwidth())
-				.attr('height', function(d) { return height - y(parseFloat(d.Price_2014__AVG)); });
-			       
-			        chart.append('rect')
-			       	.filter(function(d) { return d.Location == "New York, NY" && d.Bedroom_Size == "Studio"; })
-				.attr('x', function(d,i) { return x(1); })
-				.attr('y', function(d) { return y(parseFloat(d.Price_2015__AVG)); })
-				.attr('width', x.bandwidth())
-				.attr('height', function(d) { return height - y(parseFloat(d.Price_2015__AVG)); });
-			       
-			        chart.append('rect')
-			       	.filter(function(d) { return d.Location == "New York, NY" && d.Bedroom_Size == "Studio"; })
-				.attr('x', function(d,i) { return x(2); })
-				.attr('y', function(d) { return y(parseFloat(d.Price_2016__AVG)); })
-				.attr('width', x.bandwidth())
-				.attr('height', function(d) { return height - y(parseFloat(d.Price_2016__AVG)); });
-			       
-			        chart.append('rect')
-			       	.filter(function(d) { return d.Location == "New York, NY" && d.Bedroom_Size == "Studio"; })
-				.attr('x', function(d,i) { return x(3); })
-				.attr('y', function(d) { return y(parseFloat(d.Price_2017__AVG)); })
-				.attr('width', x.bandwidth())
-				.attr('height', function(d) { return height - y(parseFloat(d.Price_2017__AVG)); });
-			       
-			        chart.append('rect')
-			       	.filter(function(d) { return d.Location == "New York, NY" && d.Bedroom_Size == "Studio"; })
-				.attr('x', function(d,i) { return x(4); })
-				.attr('y', function(d) { return y(parseFloat(d.Price_2018__AVG)); })
-				.attr('width', x.bandwidth())
-				.attr('height', function(d) { return height - y(parseFloat(d.Price_2018__AVG)); });
-			       
-			        chart.append('rect')
-			       	.filter(function(d) { return d.Location == "New York, NY" && d.Bedroom_Size == "Studio"; })
-				.attr('x', function(d,i) { return x(5); })
-				.attr('y', function(d) { return y(parseFloat(d.Price_2019__AVG)); })
-				.attr('width', x.bandwidth())
-				.attr('height', function(d) { return height - y(parseFloat(d.Price_2019__AVG)); });
+				.attr('height', function(d) { return height - y(parseFloat(d.AVG_Rent)); });
 		       })
 		       .catch(function() {
 				console.log("error");	
