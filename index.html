@@ -116,7 +116,7 @@ function SceneOne() {
 				console.log("error");	
 		       });
 	console.log(data);
-	var xAxis = d3.axisBottom(x);//.tickValues(["New York, NY", "Chicago, IL", "San Francisco, CA", "Seattle, WA", "Champaign, IL"]);
+	var xAxis = d3.axisBottom(x);
 	d3.select('svg').append('g').attr('transform', "translate("+margin.left+","+margin.top+")").call(d3.axisLeft(y));
 	d3.select('svg').append('g').attr('transform', "translate("+margin.left+","+(height+margin.top)+")").call(xAxis);
 }
@@ -140,7 +140,7 @@ function SceneTwo() {
 				chart.selectAll('rect').data(data)
 				.enter().append('rect')
 			       	.filter(function(d) { return d.Location == "New York, NY"; })
-				.attr('x', function(d,i) { return x(i); })
+				.attr('x', function(d,i) { return x(d.Bedroom_Size); })
 				.attr('y', function(d) { return y(parseFloat(d.Price_2018__AVG)); })
 				.attr('width', x.bandwidth())
 				.attr('height', function(d) { return height - y(parseFloat(d.Price_2018__AVG)); });
@@ -149,7 +149,7 @@ function SceneTwo() {
 				console.log("error");	
 		       });
 	console.log(data);
-	var xAxis = d3.axisBottom(x).tickValues(["Studio", "One Bedroom", "Two Bedroom", "Three Bedroom", "Four Bedroom"]);
+	var xAxis = d3.axisBottom(x);
 	d3.select('svg').append('g').attr('transform', "translate("+margin.left+","+margin.top+")").call(d3.axisLeft(y));
 	d3.select('svg').append('g').attr('transform', "translate("+margin.left+","+(height+margin.top)+")").call(xAxis);
 }
@@ -174,7 +174,7 @@ function SceneThree() {
 				chart.selectAll('rect').data(data)
 				.enter().append('rect')
 			       	.filter(function(d) { return d.Location == "New York, NY" && d.Bedroom_Size == "Studio"; })
-				.attr('x', function(d,i) { return x(i); })
+				.attr('x', function(d,i) { return x(d.Year); })
 				.attr('y', function(d) { return y(parseFloat(d.AVG_Rent)); })
 				.attr('width', x.bandwidth())
 				.attr('height', function(d) { return height - y(parseFloat(d.AVG_Rent)); });
@@ -183,7 +183,7 @@ function SceneThree() {
 				console.log("error");	
 		       });
 	console.log(data);
-	var xAxis = d3.axisBottom(x).tickValues(["2014", "2015", "2016", "2017", "2018", "2019"]).tickFormat(d3.format("~s"));
+	var xAxis = d3.axisBottom(x);
 	d3.select('svg').append('g').attr('transform', "translate("+margin.left+","+margin.top+")").call(d3.axisLeft(y));
 	d3.select('svg').append('g').attr('transform', "translate("+margin.left+","+(height+margin.top)+")").call(xAxis);
 }
