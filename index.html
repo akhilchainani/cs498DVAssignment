@@ -3,6 +3,7 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="https://akhilchainani.github.io/cs498DVAssignment/index.css">
+<style> rect {fill: lightblue; stroke: black; }</style>
 <script src="https://d3js.org/d3.v5.min.js"></script>
 <script src="https://akhilchainani.github.io/cs498DVAssignment/cityBarChart.js"></script>
 <script src="https://akhilchainani.github.io/cs498DVAssignment/multiScatterPlot.js"></script>
@@ -14,8 +15,9 @@
 
 <div class="tab">
 	<button class="tablinks" onclick="openVisualization(event, 'Overview')">About the Visualization</button>
-	<button class="tablinks" onclick="openVisualization(event, 'BarChart')">Intercity Rent Analysis</button>
-	<button class="tablinks" onclick="openVisualization(event, 'ScatterPlot')">Intracity Rent Analysis</button>
+	<button class="tablinks" onclick="openVisualization(event, 'SceneOne')">Versus Other Cities</button>
+	<button class="tablinks" onclick="openVisualization(event, 'SceneTwo')">Variation Between Sizes</button>
+	<button class="tablinks" onclick="openVisualization(event, 'SceneThree')">Over The Years</button>
 </div>
 
 <div id="Overview" class="tabcontent">
@@ -65,21 +67,27 @@
    </ul>
 </div>
 
-<div id="BarChart" class="tabcontent">
+<div id="SceneOne" class="tabcontent">
   <div id="tooltip"></div>
 	<p> 
 		TODO://Description
 	</p>
 </div>
 
-<div id="ScatterPlot" class="tabcontent">
+<div id="SceneTwo" class="tabcontent">
+	<p>
+		TODO://Description
+	</p>
+</div>
+	
+<div id="SceneThree" class="tabcontent">
 	<p>
 		TODO://Description
 	</p>
 </div>
 
 <script>
-function displayBar() {
+function SceneOne() {
         var margin = {
                 top: 20,
                 right: 20,
@@ -89,32 +97,129 @@ function displayBar() {
         var width = 960 - margin.left - margin.right;
         var height = 600 - margin.top - margin.bottom;
     
-	d3.select('body').append('svg').attr('width', width).attr('height', height)
-	d3.select('svg').append('g').attr('transform', 'translate(75,75)');
-	
-        const data = d3.csv("https://raw.githubusercontent.com/akhilchainani/cs498DVAssignment/master/Preprocessed_Rent.csv");
-	console.log(data[0]);
-	
-	var studio_data = data.filter(function(d) { return d.Bedroom_Type == "Studio" });
-				
-	var max = d3.max(data, function(d) { return parseFloat(d.Price_2018_AVG); });
-	var x = d3.scaleBand([0,1,2,3,4,5]).range([0,width]);
-	var y = d3.scaleLinear().domain([0, max]).range([0,height]);
-		
-	chart = d3.select('svg').append('g').attr('transform', 'translate(75,75)');
-	chart.selectAll('rect')
-	.data(studio_data)
-	.enter()
-	.append('rect')
-	.style("fill", "red")
-	.attr('x', x.bandwidth())
-	.attr('y', function(d) { return y(parseFloat(d.Price_2018_AVG)); })
-	.attr('width', x.bandwidth())
-	.attr('height', function(d) { return height - y(parseFloat(d.Price_2018_AVG)); });
-	
+	d3.select('body').append('svg').attr('width', 960).attr('height', 600);
+	var x = d3.scaleBand().domain([0,1,2,3,4]).range([0,width]);
+	var y = d3.scaleLinear().domain([0, 2500]).range([height, 0]);
+	chart = d3.select('svg').append('g').attr('transform', "translate("+margin.left+","+margin.top+")");
+        const data = d3.csv("https://raw.githubusercontent.com/akhilchainani/cs498DVAssignment/master/Preprocessed_Rent.csv")
+		       .then(function(data) {
+				console.log(data);
+				chart.selectAll('rect').data(data)
+				.enter().append('rect')
+			       	.filter(function(d) { return d.Bedroom_Size == "Studio"; })
+				.attr('x', function(d,i) { return x(i); })
+				.attr('y', function(d) { return y(parseFloat(d.Price_2018__AVG)); })
+				.attr('width', x.bandwidth())
+				.attr('height', function(d) { return height - y(parseFloat(d.Price_2018__AVG)); });
+		       })
+		       .catch(function() {
+				console.log("error");	
+		       });
+	console.log(data);
+	var xAxis = d3.axisBottom(x).tickValues(["New York, NY", "Chicago, IL", "San Francisco, CA", "Seattle, WA", "Champaign, IL"]);
+	d3.select('svg').append('g').attr('transform', "translate("+margin.left+","+margin.top+")").call(d3.axisLeft(y));
+	d3.select('svg').append('g').attr('transform', "translate("+margin.left+","+(height+margin.top)+")").call(xAxis);
 }
-function displayScatter() {
+function SceneTwo() {
+	var margin = {
+                top: 20,
+                right: 20,
+                bottom: 30,
+                left: 100
+            };
+        var width = 960 - margin.left - margin.right;
+        var height = 600 - margin.top - margin.bottom;
+    
+	d3.select('body').append('svg').attr('width', 960).attr('height', 600);
+	var x = d3.scaleBand().domain([0,1,2,3,4]).range([0,width]);
+	var y = d3.scaleLinear().domain([1250, 3750]).range([height, 0]);
+	chart = d3.select('svg').append('g').attr('transform', "translate("+margin.left+","+margin.top+")");
+        const data = d3.csv("https://raw.githubusercontent.com/akhilchainani/cs498DVAssignment/master/Preprocessed_Rent.csv")
+		       .then(function(data) {
+				console.log(data);
+				chart.selectAll('rect').data(data)
+				.enter().append('rect')
+			       	.filter(function(d) { return d.Location == "New York, NY"; })
+				.attr('x', function(d,i) { return x(i); })
+				.attr('y', function(d) { return y(parseFloat(d.Price_2018__AVG)); })
+				.attr('width', x.bandwidth())
+				.attr('height', function(d) { return height - y(parseFloat(d.Price_2018__AVG)); });
+		       })
+		       .catch(function() {
+				console.log("error");	
+		       });
+	console.log(data);
+	var xAxis = d3.axisBottom(x).tickValues(["Studio", "One Bedroom", "Two Bedroom", "Three Bedroom", "Four Bedroom"]);
+	d3.select('svg').append('g').attr('transform', "translate("+margin.left+","+margin.top+")").call(d3.axisLeft(y));
+	d3.select('svg').append('g').attr('transform', "translate("+margin.left+","+(height+margin.top)+")").call(xAxis);
+}
 	
+function SceneThree() {
+	var margin = {
+                top: 20,
+                right: 20,
+                bottom: 30,
+                left: 100
+            };
+        var width = 960 - margin.left - margin.right;
+        var height = 600 - margin.top - margin.bottom;
+    
+	d3.select('body').append('svg').attr('width', 960).attr('height', 600);
+	var x = d3.scaleBand().domain([0,1,2,3,4,5]).range([0,width]);
+	var y = d3.scaleLinear().domain([1500, 2000]).range([height, 0]);
+	chart = d3.select('svg').append('g').attr('transform', "translate("+margin.left+","+margin.top+")");
+        const data = d3.csv("https://raw.githubusercontent.com/akhilchainani/cs498DVAssignment/master/Preprocessed_Rent.csv")
+		       .then(function(data) {
+				console.log(data);
+				chart.append('rect')
+			       	.filter(function(d) { return d.Location == "New York, NY" && d.Bedroom_Size == "Studio"; })
+				.attr('x', function(d,i) { return x(0); })
+				.attr('y', function(d) { return y(parseFloat(d.Price_2014__AVG)); })
+				.attr('width', x.bandwidth())
+				.attr('height', function(d) { return height - y(parseFloat(d.Price_2014__AVG)); });
+			       
+			        chart.append('rect')
+			       	.filter(function(d) { return d.Location == "New York, NY" && d.Bedroom_Size == "Studio"; })
+				.attr('x', function(d,i) { return x(1); })
+				.attr('y', function(d) { return y(parseFloat(d.Price_2015__AVG)); })
+				.attr('width', x.bandwidth())
+				.attr('height', function(d) { return height - y(parseFloat(d.Price_2015__AVG)); });
+			       
+			        chart.append('rect')
+			       	.filter(function(d) { return d.Location == "New York, NY" && d.Bedroom_Size == "Studio"; })
+				.attr('x', function(d,i) { return x(2); })
+				.attr('y', function(d) { return y(parseFloat(d.Price_2016__AVG)); })
+				.attr('width', x.bandwidth())
+				.attr('height', function(d) { return height - y(parseFloat(d.Price_2016__AVG)); });
+			       
+			        chart.append('rect')
+			       	.filter(function(d) { return d.Location == "New York, NY" && d.Bedroom_Size == "Studio"; })
+				.attr('x', function(d,i) { return x(3); })
+				.attr('y', function(d) { return y(parseFloat(d.Price_2017__AVG)); })
+				.attr('width', x.bandwidth())
+				.attr('height', function(d) { return height - y(parseFloat(d.Price_2017__AVG)); });
+			       
+			        chart.append('rect')
+			       	.filter(function(d) { return d.Location == "New York, NY" && d.Bedroom_Size == "Studio"; })
+				.attr('x', function(d,i) { return x(4); })
+				.attr('y', function(d) { return y(parseFloat(d.Price_2018__AVG)); })
+				.attr('width', x.bandwidth())
+				.attr('height', function(d) { return height - y(parseFloat(d.Price_2018__AVG)); });
+			       
+			        chart.append('rect')
+			       	.filter(function(d) { return d.Location == "New York, NY" && d.Bedroom_Size == "Studio"; })
+				.attr('x', function(d,i) { return x(5); })
+				.attr('y', function(d) { return y(parseFloat(d.Price_2019__AVG)); })
+				.attr('width', x.bandwidth())
+				.attr('height', function(d) { return height - y(parseFloat(d.Price_2019__AVG)); });
+		       })
+		       .catch(function() {
+				console.log("error");	
+		       });
+	console.log(data);
+	var xAxis = d3.axisBottom(x).tickValues(["2014", "2015", "2016", "2017", "2018", "2019"]);
+	d3.select('svg').append('g').attr('transform', "translate("+margin.left+","+margin.top+")").call(d3.axisLeft(y));
+	d3.select('svg').append('g').attr('transform', "translate("+margin.left+","+(height+margin.top)+")").call(xAxis);
 }
 
 function openVisualization(evt, visName) {
@@ -127,19 +232,18 @@ function openVisualization(evt, visName) {
     }
     tablinks = document.getElementsByClassName("tablinks");
     for (i = 0; i < tablinks.length; i++) {
-			tablinks[i].className = tablinks[i].className.replace(" active", "");
-			tablinks[i].className = tablinks[i].className.replace(" active", "");
+	tablinks[i].className = tablinks[i].className.replace(" active", "");
     }
     document.getElementById(visName).style.display = "block";
 	if(evt!==0)
 		evt.currentTarget.className += " active";
 		
-	if(visName==='ScatterPlot')
-		console.log("Scatter")
-		displayScatter();
-	if(visName==='BarChart')
-		console.log("Bar")
-		displayBar();
+	if(visName==='SceneOne')
+		SceneOne();
+	if(visName==='SceneTwo')
+		SceneTwo();
+	if(visName==='SceneThree')
+		SceneThree();
 	if(visName==='Overview')
 		tablinks[0].className += " active";
 }
