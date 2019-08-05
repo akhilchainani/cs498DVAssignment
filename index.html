@@ -67,14 +67,20 @@
    </ul>
 </div>
 
-<div id="BarChart" class="tabcontent">
+<div id="SceneOne" class="tabcontent">
   <div id="tooltip"></div>
 	<p> 
 		TODO://Description
 	</p>
 </div>
 
-<div id="ScatterPlot" class="tabcontent">
+<div id="SceneTwo" class="tabcontent">
+	<p>
+		TODO://Description
+	</p>
+</div>
+	
+<div id="SceneThree" class="tabcontent">
 	<p>
 		TODO://Description
 	</p>
@@ -226,8 +232,7 @@ function openVisualization(evt, visName) {
     }
     tablinks = document.getElementsByClassName("tablinks");
     for (i = 0; i < tablinks.length; i++) {
-			tablinks[i].className = tablinks[i].className.replace(" active", "");
-			tablinks[i].className = tablinks[i].className.replace(" active", "");
+	tablinks[i].className = tablinks[i].className.replace(" active", "");
     }
     document.getElementById(visName).style.display = "block";
 	if(evt!==0)
