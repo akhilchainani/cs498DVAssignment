@@ -88,7 +88,7 @@ function displayBar() {
                 left: 100
             };
         var width = 960 - margin.left - margin.right;
-        var height = 600 - margin.top - margin.bottom;
+        var height = 800 - margin.top - margin.bottom;
     
 	d3.select('body').append('svg').attr('width', width).attr('height', height);
 	var x = d3.scaleBand().domain([0,1,2,3,4]).range([0,width]);
@@ -111,7 +111,7 @@ function displayBar() {
 		       });
 	console.log(data);
 	d3.select('svg').append('g').attr('transform', "translate("+margin.left+","+margin.top+")").call(d3.axisLeft(y));
-	d3.select('svg').append('g').attr('transform', "translate("+margin.left+","+(margin.top)+")").call(d3.axisBottom(x));
+	d3.select('svg').append('g').attr('transform', "translate("+margin.left+","+(height)+")").call(d3.axisBottom(x));
 }
 function displayScatter() {
 	
