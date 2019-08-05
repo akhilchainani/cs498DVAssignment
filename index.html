@@ -107,7 +107,7 @@ function SceneOne() {
 				chart.selectAll('rect').data(data)
 				.enter().append('rect')
 			       	.filter(function(d) { return d.Bedroom_Size == "Studio"; })
-				.attr('x', function(d,i) { return x(i); })
+				.attr('x', function(d,i) { return x(d.Location); })
 				.attr('y', function(d) { return y(parseFloat(d.Price_2018__AVG)); })
 				.attr('width', x.bandwidth())
 				.attr('height', function(d) { return height - y(parseFloat(d.Price_2018__AVG)); });
