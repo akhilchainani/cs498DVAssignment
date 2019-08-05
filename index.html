@@ -23,45 +23,45 @@
 <div id="Overview" class="tabcontent">
    <ul>
       <li>
-         Does the narrative visualization correctly follow the hybrid structure as stated by the essay?
+         Messaging: What is the message you are trying to communicate with the narrative visualization?
          <p>
-		TODO://Answer
+		My narrative visualization is supposed to depict how in every respect, New York rent prices have become astronomically high. This is done through a variety of charts and visualizations, highlighting different aspects of this issue.
          </p>
       </li>
       <li>
-         Does the narrative visualization effectively utilize scenes?
+         Narrative Structure. Which structure was your narrative visualization designed to follow (martini glass, interactive slide show or drop-down story)? How does your narrative visualization follow that structure? (All of these structures can include the opportunity to "drill-down" and explore. The difference is where that opportunity happens in the structure.)
          <p> 
-		TODO://Answer
-        </p>
-         <p>
-		TODO://Answer             
-        </p>
-         <p> 
-		TODO://Answer
+		I use an interactive slide show that allows viewers to move through different scenes and view the data from different angles. The landing page brings users to an overview, which is general information regarding the visualization. Viewers also have the option of moving laterally between scenes as they so choose
         </p>
       </li>
       <li>
-         Does the narrative visualization effectively utilize annotations?
+         Visual Structure: What visual structure is used for each scene? How does it ensure the viewer can understand the data and navigate the scene? How does it highlight to urge the viewer to focus on the important parts of the data in each scene? How does it help the viewer transition to other scenes, to understand how the data connects to the data in other scenes?
          <p> 	
-		TODO://Answer
+		Each scene uses a bar chart to highlight the key concept in that scene. A bar chart seemed to make the most sense for this data, since the bottom axes were all categorical data. Another suitable alternative could have been a pie chart, but I felt as though that wouldn’t convey the point as eloquently as a bar chart. From the user perspective, the bar chart instantaneously depicts a trend that that scene is trying to exemplify. For example, in the final scene that shows rent change over time, at first glance, the user will notice a near-linear increase over the years, which supports the claim. In the case of the first chart, the first thing the user should notice is the fact that New York and San Francisco rent prices are substantially higher than other big cities in America. Since all of these charts are built from the same dataset, it allows users to simply view the data from different angles and see variation across different dimensions.
 	 </p>
       </li>
       <li>
-         Does the narrative visualization effectively utilize parameters?
+         Scenes: What are the scenes of your narrative visualization? How are the scenes ordered, and why?
          <p>  
-		TODO://Answer
+		My landing scene brings the user to an overview of the visualization, providing them with general information. The second scene depicts a bar chart of the average rent in 2018 in some of the largest cities in the country (plus Champaign). I chose to start with this scene because geographically, I thought it made the most sense to analyze the data across the entire country before diving into New York City specifically, because it would give the view a baseline reference. The next scene compares New York City rent prices, between certain bedroom styles (1 bedroom, 2 bedroom, studio, etc.). I chose this as my next scene because it would serve as a transition into New York city specific data; even though this scene doesn’t depict convictive evidence supporting the claim, it’s extremely useful background information, that shows the rent distribution across New York. The last scene is another bar graph that shows the Average New York City rent prices over the past five years. Since this clearly shows that the average rent has increased nearly 10% in the last 5 years, this scene, coupled with the previous two, support the claim of how New York City rent prices are incessantly high.
         </p>
       </li>
       <li>
-         Does the narrative visualization effectively utilize triggers?
+         Annotations. What template was followed for the annotations, and why that template? How are the annotations used to support the messaging? Do the annotations change within a single scene, and if so, how and why?
          <p>	
-		TODO://Answer
+		Since each graph is somewhat independent, I annotated the graph as a whole, describing how the data supports the claim. The annotations do not change, since there is limited user interaction within the scene.
  </p>
       </li>
 	   <li>
-         Code organization.
+         Parameters. What are the parameters of the narrative visualization? What are the states of the narrative visualization? How are the parameters used to define the state and each scene?
          <p> 	
-		TODO://Answer
+		The screen lands on the “Overview” tab. After that, when the user clicks a button to move to the next tab, it triggers an OnClick() function that renders the next scene, this changes the current state of the visualization, and each time the user clicks a new button, the scene the clicked on is rendered.
+	 </p>
+      </li>
+	   <li>
+         Triggers. What are the triggers that connect user actions to changes of state in the narrative visualization? What affordances are provided to the user to communicate to them what options are available to them in the narrative visualization?
+         <p> 	
+		My triggers are tabs located at the top of the screen, which allow the user to easily go back and forth between scenes and navigate the visualization how they so choose. The tabs highlight when the user’s cursor is on it to show that they can be clicked on. The tabs also contrast the background, to further highlight the fact that the buttons can be clicked on.
 	 </p>
       </li>
    </ul>
