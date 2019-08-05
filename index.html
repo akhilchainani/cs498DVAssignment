@@ -109,8 +109,9 @@ function displayBar() {
 				console.log("error");	
 		       });
 	console.log(data);
+	var xAxis = d3.svg.axis().scale(x).tickValues(["New York, NY", "Chicago, IL", "San Francisco, CA", "Seattle, WA", "Champaign, IL"]);
 	d3.select('svg').append('g').attr('transform', "translate("+margin.left+","+margin.top+")").call(d3.axisLeft(y));
-	d3.select('svg').append('g').attr('transform', "translate("+margin.left+","+(height+margin.top)+")").call(d3.axisBottom(x));
+	d3.select('svg').append('g').attr('transform', "translate("+margin.left+","+(height+margin.top)+")").call(d3.axisBottom(xAxis));
 }
 function displayScatter() {
 	
