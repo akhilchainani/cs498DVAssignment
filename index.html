@@ -139,7 +139,7 @@ function SceneTwo() {
 				console.log(data);
 				chart.selectAll('rect').data(data)
 				.enter().append('rect')
-			       	.filter(function(d) { return d.Location == "New York, NY" && d.Bedroom_Size == "Studio"; })
+			       	.filter(function(d) { return d.Location == "New York, NY"; })
 				.attr('x', function(d,i) { return x(i); })
 				.attr('y', function(d) { return y(parseFloat(d.Price_2018__AVG)); })
 				.attr('width', x.bandwidth())
@@ -173,42 +173,42 @@ function SceneThree() {
 				console.log(data);
 				chart.append('rect')
 			       	.filter(function(d) { return d.Location == "New York, NY" && d.Bedroom_Size == "Studio"; })
-				.attr('x', function(d,i) { return x(i); })
+				.attr('x', function(d,i) { return x(0); })
 				.attr('y', function(d) { return y(parseFloat(d.Price_2014__AVG)); })
 				.attr('width', x.bandwidth())
 				.attr('height', function(d) { return height - y(parseFloat(d.Price_2014__AVG)); });
 			       
 			        chart.append('rect')
 			       	.filter(function(d) { return d.Location == "New York, NY" && d.Bedroom_Size == "Studio"; })
-				.attr('x', function(d,i) { return x(i); })
+				.attr('x', function(d,i) { return x(1); })
 				.attr('y', function(d) { return y(parseFloat(d.Price_2015__AVG)); })
 				.attr('width', x.bandwidth())
 				.attr('height', function(d) { return height - y(parseFloat(d.Price_2015__AVG)); });
 			       
 			        chart.append('rect')
 			       	.filter(function(d) { return d.Location == "New York, NY" && d.Bedroom_Size == "Studio"; })
-				.attr('x', function(d,i) { return x(i); })
+				.attr('x', function(d,i) { return x(2); })
 				.attr('y', function(d) { return y(parseFloat(d.Price_2016__AVG)); })
 				.attr('width', x.bandwidth())
 				.attr('height', function(d) { return height - y(parseFloat(d.Price_2016__AVG)); });
 			       
 			        chart.append('rect')
 			       	.filter(function(d) { return d.Location == "New York, NY" && d.Bedroom_Size == "Studio"; })
-				.attr('x', function(d,i) { return x(i); })
+				.attr('x', function(d,i) { return x(3); })
 				.attr('y', function(d) { return y(parseFloat(d.Price_2017__AVG)); })
 				.attr('width', x.bandwidth())
 				.attr('height', function(d) { return height - y(parseFloat(d.Price_2017__AVG)); });
 			       
 			        chart.append('rect')
 			       	.filter(function(d) { return d.Location == "New York, NY" && d.Bedroom_Size == "Studio"; })
-				.attr('x', function(d,i) { return x(i); })
+				.attr('x', function(d,i) { return x(4); })
 				.attr('y', function(d) { return y(parseFloat(d.Price_2018__AVG)); })
 				.attr('width', x.bandwidth())
 				.attr('height', function(d) { return height - y(parseFloat(d.Price_2018__AVG)); });
 			       
 			        chart.append('rect')
 			       	.filter(function(d) { return d.Location == "New York, NY" && d.Bedroom_Size == "Studio"; })
-				.attr('x', function(d,i) { return x(i); })
+				.attr('x', function(d,i) { return x(5); })
 				.attr('y', function(d) { return y(parseFloat(d.Price_2019__AVG)); })
 				.attr('width', x.bandwidth())
 				.attr('height', function(d) { return height - y(parseFloat(d.Price_2019__AVG)); });
