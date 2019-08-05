@@ -131,7 +131,7 @@ function SceneTwo() {
         var height = 600 - margin.top - margin.bottom;
     
 	d3.select('body').append('svg').attr('width', 960).attr('height', 600);
-	var x = d3.scaleBand().domain([0,1,2,3,4]).range([0,width]);
+	var x = d3.scaleBand().domain(["Studio", "1br", "2br", "3br", "4br"]).range([0,width]);
 	var y = d3.scaleLinear().domain([1250, 3750]).range([height, 0]);
 	chart = d3.select('svg').append('g').attr('transform', "translate("+margin.left+","+margin.top+")");
         const data = d3.csv("https://raw.githubusercontent.com/akhilchainani/cs498DVAssignment/master/Preprocessed_Rent.csv")
@@ -165,7 +165,7 @@ function SceneThree() {
         var height = 600 - margin.top - margin.bottom;
     
 	d3.select('body').append('svg').attr('width', 960).attr('height', 600);
-	var x = d3.scaleBand().domain([0,1,2,3,4,5]).range([0,width]);
+	var x = d3.scaleBand().domain(["2014","2015","2016","2017","2018","2019"]).range([0,width]);
 	var y = d3.scaleLinear().domain([1750, 1950]).range([height, 0]);
 	chart = d3.select('svg').append('g').attr('transform', "translate("+margin.left+","+margin.top+")");
         const data = d3.csv("https://raw.githubusercontent.com/akhilchainani/cs498DVAssignment/master/Pivoted_data.csv")
