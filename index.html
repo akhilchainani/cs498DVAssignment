@@ -91,11 +91,11 @@ function SceneOne() {
         var margin = {
                 top: 20,
                 right: 20,
-                bottom: 30,
+                bottom: 20,
                 left: 100
             };
         var width = 960 - margin.left - margin.right;
-        var height = 600 - margin.top - margin.bottom;
+        var height = 610 - margin.top - margin.bottom;
     
 	d3.select('body').append('svg').attr('width', 960).attr('height', 600);
 	var x = d3.scaleBand().domain(["New York, NY", "Chicago, IL", "San Francisco, CA", "Seattle, WA", "Champaign, IL"]).range([0,width]);
@@ -122,12 +122,12 @@ function SceneOne() {
 	d3.select('svg').append("text")
     		.attr("class", "x label")
     		.attr("text-anchor", "end")
-    		.attr("x", 430)
-    		.attr("y", height - 10)
+    		.attr("x", 527)
+    		.attr("y", 600)
     		.text("City");
 	d3.select('svg').append("text")
     		.attr("class", "y label")
-    		.attr("text-anchor", "end")
+    		.attr("text-anchor", "middle")
     		.attr("y", 10)
     		.attr("dy", ".75em")
     		.attr("transform", "rotate(-90)")
